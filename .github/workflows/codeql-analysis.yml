@@ -27,14 +27,14 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
-      - name: Restore and Build
-        run: dotnet build InvaderGameWinForms/InvaderGameWinForms/InvaderGameWinForms.csproj
-
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: csharp
           build-mode: manual
+
+      - name: Restore and Build
+        run: dotnet build InvaderGameWinForms/InvaderGameWinForms/InvaderGameWinForms.csproj
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
