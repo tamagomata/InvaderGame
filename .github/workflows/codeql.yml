@@ -1,0 +1,40 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # 毎週チェック
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: windows-latest  # C#だからWindowsが必要
+
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'csharp' ]  # ここが重要！
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Build project
+        run: |
+          dotnet build InvaderGame.sln  # ここでソリューション名に注意！
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
