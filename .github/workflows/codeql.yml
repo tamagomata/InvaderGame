@@ -11,7 +11,7 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: windows-latest  # C#だからWindowsが必要
+    runs-on: windows-latest  # C#はWindows環境が必要
 
     permissions:
       actions: read
@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'csharp' ]  # ここが重要！
+        language: [ 'csharp' ]
 
     steps:
       - name: Checkout repository
@@ -34,7 +34,7 @@ jobs:
 
       - name: Build project
         run: |
-          dotnet build InvaderGame.sln  # ここでソリューション名に注意！
+          dotnet build InvaderGameWinForms/InvaderGameWinForms.sln
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
