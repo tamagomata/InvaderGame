@@ -25,10 +25,10 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '9.0.x'  # ← あなたのターゲットフレームワークに合わせて
+          dotnet-version: '9.0.x'
 
       - name: Restore and Build
-        run: dotnet build InvaderGameWinForms.csproj
+        run: dotnet build InvaderGameWinForms/InvaderGameWinForms.csproj
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
