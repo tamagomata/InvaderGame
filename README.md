@@ -1,2 +1,2 @@
 # InvaderGame
-インベーダーゲームです
+C#のwinformでできたインベーダーゲームです
