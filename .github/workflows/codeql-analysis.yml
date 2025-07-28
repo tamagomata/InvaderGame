@@ -28,7 +28,7 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Restore and Build
-        run: dotnet build InvaderGameWinForms/InvaderGameWinForms.csproj
+        run: dotnet build InvaderGameWinForms.csproj
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
