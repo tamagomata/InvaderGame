@@ -1,8 +1,6 @@
 # InvaderGame
 C#のwinformでできたインベーダーゲームです
 
-# Invader Game
-
 ## 動作画面
 
 以下に代表的な動作画面を示します。
